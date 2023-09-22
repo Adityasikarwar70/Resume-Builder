@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container-fluid"  >
+    <nav class="navbar fixed-top " id="navbar1">
+        <div class="container-fluid">
+            <h3>Resume Builder</h3>
+            <button type="button" onclick="darkmode()" class="btn btn-dark btn-sm">Dark mode</button>
+
+        </div>
+    </nav>
+
+    <div class="container " id="cv-form">
+        <div class="row mt-10 ">
+            <div class="col-md-6">
+                <h3 class="text-center ">Personal Information</h3>
+
+                <div class="form-group">
+                    <label class="mx-3" for="namefield">Your Name</label>
+                    <input type="text" id="namefield" placeholder=" Name" class="form-control my-2 ">
+                </div>
+
+                <div class="form-group mt-2">
+                    <label class="mx-3" for="contactfield">Your Contact</label>
+                    <input type="text" id="contactfield" placeholder="0123456789" class="form-control my-2 ">
+
+                </div>
+
+                <div class="form-group mt-2">
+                    <label class="mx-3" for="addressfield">Your Address</label>
+                    <textarea id="addressfield" placeholder="Enter here" class="form-control my-2 " rows="2"></textarea>
+
+                </div>
+                <p class=" my-3 mx-3">Links</p>
+
+                <div class="form-group mt-2">
+                    <label class=" mx-3" for="Linkedinfield">LinkedIn</label>
+                    <input type="text" id="LinkedInfield" placeholder="link" class="form-control my-2 ">
+                </div>
+
+                <div class="form-group mt-2">
+                    <label class=" mx-3" for="githubfield">GitHub</label>
+                    <input type="text" id="githubfield" placeholder="link" class="form-control my-2 ">
+                </div>
+
+                <div class="form-group mt-2">
+                    <label class=" mx-3" for="gmailfield">Gmail</label>
+                    <input type="text" id="gmailfield" placeholder="abc@gmail.com" class="form-control my-2 ">
+                </div>
+
+                <div class="form-group mt-2">
+                    <label class=" mx-3" for="websitefield">web-site</label>
+                    <input type="text" id="websitefield" placeholder="link" class="form-control my-2 ">
+                </div>
+
+            </div>
+            <!-- ----------------------------------------------------------------------------------------------- -->
+            <div class="col-md-6">
+                <h3 class="text-center">Professional Information</h3>
+
+                <div class="form-group mt-2">
+                    <label class="mx-3" for="educationfield">Education</label>
+                    <textarea id="educationfield" placeholder="Collage/Universite" class="form-control my-2 "
+                        rows="2"></textarea>
+                    <textarea id="educationfield1" placeholder="School" class="form-control my-2 " rows="2"></textarea>
+                </div>
+
+                <div class="form-group mt-2" id="skills">
+                    <label class="mx-3" for="">Skills</label>
+                    <textarea placeholder="Enter here" class="form-control my-2 skillsfield" rows="4"></textarea>
+
+                    <div class="container text-center my-3" id="skillbutton">
+                        <button type="button" onclick=addskillfield() class="btn btn-outline-success  ">Add
+                            Skills</button>
+                    </div>
+                </div>
+
+                <div class="form-group mt-2" id="projects">
+                    <label class="mx-3" for="projectsfield">Projects</label>
+                    <textarea placeholder="Enter here" class="form-control my-2 projectsfield" rows="4"></textarea>
+                    <!-- <textarea placeholder="project link" class="form-control my-2 projectlinkfield" rows="1"></textarea> -->
+                    <div class="container text-center my-3" id="projectsbutton">
+                        <button type="button" onclick=addprojectsfield()
+                            class="btn btn-outline-success  addprojects">Add
+                            Projects</button>
+                    </div>
+                </div>
+
+                <div class="form-group mt-2" id="work">
+                    <label class="mx-3" for="workfield">Work Experience/Internships</label>
+                    <textarea placeholder="Enter here" class="form-control my-2 workfield" rows="4"></textarea>
+
+                    <div class="container text-center my-3" id="workbutton">
+                        <button type="button" onclick=addworkfield() class="btn btn-outline-success  addwork">Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center my-3">
+            <button onclick="generatecv()" class="btn btn-outline-success  addwork"> Generate CV </button>
+
+        </div>
+    </div>
+    <br>
+<!-- ----------------------------------------------------------------resume ---------------------------------------- -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+    <div class="container " id="Resume">
+        <div class="text-center">
+            <h1 id="nameresume">Your Name</h1>
+            <div class="ab1">
+                <p id="phoneresume">0123456789</p>
+            </div>
+            <div class="ab1">
+                <p class=" mx-1">||</p>
+            </div>
+            <div class="ab1">
+                <p id="addressresume">Address</p>
+            </div>
+            <br>
+            <div class="ab1 "><a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-70-hover"
+                    href="#">
+                    <p id="gmailresume">Gmail</p>
+                </a></div>
+            <div class="ab1">
+                <p class=" mx-1">||</p>
+            </div>
+            <div class="ab1"><a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-70-hover"
+                    href="#">
+                    <p id="githubresume">GitHub</p>
+                </a></div>
+            <div class="ab1">
+                <p class=" mx-1">||</p>
+            </div>
+            <div class="ab1"><a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-70-hover"
+                    href="#">
+                    <p id="linkedinresume">LinkedIn</p>
+                </a></div>
+            <div class="ab1">
+                <p class=" mx-1">||</p>
+            </div>
+            <div class="ab1"><a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-70-hover"
+                    href="#">
+                    <p id="websiteresume">Website</p>
+                </a></div>
+        </div>
+
+        <div class="text-start">
+            <!-- ---------------------EDUCATION------------------------ -->
+            <h3 class="text-start mx-5 mt-5">EDUCATION</h3>
+            <div class="horizontal_line"></div>
+            <h4 class=" course mx-5" id="educationresume">Course , Collage/University , passing year(2020-2024)</h4>
+            <h4 class=" course mx-5" id="educationresume1">CGPA / SGPA / %</h4>
+            <br>
+
+
+            <!-- ----------------------------------------SKILLS---------------------------- -->
+            <h3 class="text-start mx-5 mt-5">SKILLS</h3>
+            <div class="horizontal_line"></div>
+            <div class="cardbody">
+                <ul class="mx-5" id="skillsresume">
+                    <li>
+                        <h4>Skills </h4>
+                    </li>
+                    <li>
+                        <h4>Soft Skills</h4>
+                    </li>
+                    <li>
+                        <h4>Other Skills </h4>
+                    </li>
+                </ul>
+            </div>
+
+
+            <!-- <h4 class=" course mx-5" id="skillsresume">Languages</h4> -->
+
+            <!-- <br> -->
+            <!-- <h4 class=" course mx-5" id="skillsresume1">Other Skills</h4> -->
+
+            <!-- ----------------------------------------PROJECTS------------------------------------ -->
+
+            <h3 class="text-start mx-5 mt-5">PROJECTS</h3>
+            <div class="horizontal_line"></div>
+            <div class="cardbody">
+                <ul class="mx-5" id="projectsresume">
+                    <li >
+                        <h4>Project : 1 </h4>
+                        
+                    </li>
+                    <li>
+                        <h4>Project : 2 </h4>
+                    </li>
+                    <li>
+                        <h4>Project : 3 </h4>
+                    </li>
+                </ul>
+            </div>
+            <!-- <h4 class=" course mx-5" id="projectresume">Project 1 </h4>
+            <h4 class=" course mx-5">Project Discreption</h4>
+            <h4 class=" course mx-5 text-end"><a
+                    class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-70-hover"
+                    href="#">Link</a></h4> -->
+
+
+            <!-- ----------------------------------------INTERNSHIPS------------------------------------ -->
+
+            <h3 class="text-start mx-5 mt-5">INTERNSHIPS / WORK EXPERIENCE</h3>
+            <div class="horizontal_line"></div>
+            <div class="cardbody">
+                <ul class="mx-5" id="internshipsresume">
+                    <li >
+                        <h4>Internship : 1 </h4>
+                        
+                    </li>
+                    <li>
+                        <h4>Internship : 2 </h4>
+                    </li>
+                    <li>
+                        <h4>Work Experience  </h4>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- <h4 class=" course mx-5" id="internshipresume">Internships 1 -- > </h4>
+            <h4 class=" course mx-5">time Dueration</h4>
+             -->
+
+
+
+
+        </div>
+
+    </div>
+    <div id="printbutton" class="container text-center"> <button onclick="printcv()" class="btn btn-outline-success  addwork"> Print
+            CV </button></div>
+
+        
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+
+</html>
